@@ -1,0 +1,203 @@
+nav {
+  display: flex;
+  gap: 25px;              /* Отступы между ссылками */
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+nav a {
+  color: #000709;         /* Светлый цвет текста */
+  text-decoration: none;  /* Убираем подчеркивание */
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #e67e22;  /* Акцентная линия при наведении */
+  transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #e67e22;          /* Цвет при наведении */
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;             /* Подчеркивание при наведении */
+}
+.payment-page {
+  padding: 2em;
+  text-align: center;
+  background-color: #f9f9f9; /* Добавил фон для контраста */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.card-form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  max-width: 320px; /* немного увеличил ширину */
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-form input {
+  width: 100%;
+  padding: 0.7em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.card-form input:focus {
+  border-color: #2a9d8f;
+  outline: none;
+}
+
+.card-details {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+
+.card-details input {
+  flex: 1;
+}
+
+.btn {
+  padding: 0.7em 2em;
+  background-color: #2a9d8f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #21867a;
+  transform: translateY(-2px);
+}
+
+.site-footer {
+  background-color: #f6f8fa;
+  color: #2d2d2d;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-logo {
+  max-height: 50px;
+  margin-bottom: 20px;
+}
+
+.footer-left h4,
+.footer-middle h4,
+.footer-right h4 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #555;
+}
+
+.footer-left p,
+.footer-middle p {
+  margin: 6px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.social-icons img:hover,
+.social-icons img:focus {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  color: #2a9d8f;
+}
+
+.footer-copy p {
+  margin: 4px 0;
+  line-height: 1.5;
+  font-size: 12px;
+  color: #999;
+}

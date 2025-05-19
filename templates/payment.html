@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оплата картой Мир | Kassir-Style</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='pstyle.css') }}">
+</head>
+<body>
+  <header>
+    <div class="logo">Kassir-Style</div>
+    <nav>
+      <a href="{{ url_for('index') }}">Афиша</a>
+      <a href="#">Контакты</a>
+      <a href="#">О нас</a>
+    </nav>
+  </header>
+
+  <main class="payment-page">
+    <h2>Оплата картой Мир</h2>
+    <img src="{{ url_for('static', filename='mir.png') }}" alt="Мир" style="max-width: 150px; margin: 1em auto; display: block;">
+    
+    <form class="card-form" action="/process_payment" method="post">
+      <div class="promo-form" style="text-align: center; margin-bottom: 1em;">
+        <label for="promo_code" style="display: block; margin-bottom: 0.5em;">Есть промокод?</label>
+        <input type="text" id="promo_code" name="promo_code" placeholder="Введите промокод" style="padding: 0.5em; width: 60%; max-width: 300px;">
+      </div>
+          
+      <input type="text" name="card_number" placeholder="Номер карты" maxlength="19" inputmode="numeric" pattern="\d*" required>
+
+      <input type="text" name="card_name" placeholder="Имя на карте на английском" required>
+      <div class="card-details">
+        <input type="text" name="expiry_date" placeholder="MM/YY" maxlength="5"  required>
+        <input type="text" name="cvc" placeholder="CVC" maxlength="3"  required>
+      </div>
+      <button type="submit" class="btn">Оплатить</button>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <h4>"Остров Мечты"</h4>
+        <div>
+          <h4>Наш адрес</h4>
+          <p>Москва, проспект Андропова, д.1</p>
+          <h4>Телефон</h4>
+          <p>+7 (495) 221-100-020</p>
+        </div>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Режим работы</h4>
+        <p><strong>Городской променад</strong><br>Ежедневно с 10 до 22 часов<br>Рестораны до 23 часов</p>
+        <p><strong>Парк развлечений</strong><br>Ежедневно с 12 до 22 часов</p>
+        <p><strong>Dream Game Center</strong><br>Ежедневно с 11:00 до 22:45</p>
+        <p><strong>Ландшафтный парк</strong><br>Ежедневно с 10 до 22 часов<br>С 22 часов — только выход</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-links">
+        <a href="#">Как добраться?</a>
+        <a href="#">Правила посещения</a>
+        <a href="#">Часто задаваемые вопросы</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>© 2025 Все права защищены</p>
+        <p>Настоящий веб-сайт с доменным именем dreamisland.ru является официальным сайтом Парка развлечений «Остров мечты» (далее – «Сайт»). Материалы, элементы и авторские работы, содержащиеся на Сайте, включая, без ограничения, дизайн, текстовые материалы и изображения, если не указано иное, принадлежат компании АО ХК «Остров Мечты» и/или ООО «Парк Развлечений» и/или АО «РЕГИОНЫ-Энтертейнмент» и/или ООО «РЭ Ритейл» и не подлежат копированию, воспроизведению, передаче, распространению, использованию, сдаче в аренду, сублицензированию, изменению, хранению для последующего использования целиком или частично в любом виде без письменного согласия со стороны компании правообладателя. Некоторые изображения на Сайте используются по лицензии Sony Pictures Consumer Products Inc., VIMN Netherlands B.V. (Viacom Group), International Merchandising, Promotion and Services S.A. (IMPS S.A.), Sanrio GmbH, Shutterstock, Inc....</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const expiryInput = document.querySelector('input[name="expiry_date"]');
+
+    expiryInput.addEventListener("input", function (e) {
+      let value = e.target.value.replace(/\D/g, ""); // Убираем всё, кроме цифр
+
+      if (value.length >= 3) {
+        value = value.slice(0, 2) + "/" + value.slice(2, 4);
+      }
+
+      e.target.value = value;
+    });
+  });
+</script>
+
+</body>
+</html>

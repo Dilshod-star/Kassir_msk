@@ -57,6 +57,3 @@ def process_payment():
 @app.route('/success')
 def payment_success():
     return "Платеж обработается в течение 30 минут!"
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
